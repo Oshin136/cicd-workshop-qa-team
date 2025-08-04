@@ -78,8 +78,6 @@ describe('API Integration E2E Tests', () => {
       url: `${apiUrl}/users/${nonExistentId}`,
       failOnStatusCode: false
     }).then((response) => {
-      // Accept either 404 (Not Found) or 500 (Server Error) as valid responses
-      // for a non-existent user ID
       expect(response.status).to.be.oneOf([404, 500])
       expect(response.body).to.have.property('error')
     })
